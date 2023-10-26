@@ -1,4 +1,4 @@
-export default function HomaPage() {
+export default function HomePage() {
 	return (
 		<>
 			<h1>Game Rev</h1>
