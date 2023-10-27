@@ -1,7 +1,9 @@
+import Heading from "@/components/Heading";
+
 export default function HomePage() {
 	return (
 		<>
-			<h1>Game Rev</h1>
+			<Heading>GameRev</Heading>
 			<p>Only the best indie games for you</p>
 		</>
 	);

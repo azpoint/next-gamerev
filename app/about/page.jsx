@@ -1,7 +1,9 @@
+import Heading from "../../components/Heading";
+
 export default function About({ children }) {
 	return (
 		<>
-			<h1>About</h1>
+			<Heading>About</Heading>
 			<p>Simple static webpage to learn NextJS</p>
 		</>
 	);
