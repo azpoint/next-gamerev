@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ReviewList } from "@/lib/reviews";
+import { getReviewList } from "@/lib/reviews";
 
 import Heading from "@/components/Heading";
 
 export default async function ReviewsPage() {
-	const reviews = await ReviewList();
+	const reviews = await getReviewList();
 	return (
 		<>
 			<Heading>Reviews</Heading>
