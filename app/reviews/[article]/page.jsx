@@ -1,9 +1,15 @@
 import Heading from "@/components/Heading";
-import { getReview } from "@/lib/reviews";
+import { getReview, getArticles } from "@/lib/reviews";
 
 
-export default async function ReviewPage({params: {article}}) {
-	const review = await getReview(article)
+//Function to generate static routes
+export async function generateStaticParams() {
+	const article = await getArticles();
+	return article.map((slug) => ({ slug }));
+}
+
+export default async function ReviewPage({ params: { article } }) {
+	const review = await getReview(article);
 
 	return (
 		<>
