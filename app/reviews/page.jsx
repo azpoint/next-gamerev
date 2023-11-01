@@ -3,6 +3,11 @@ import { getReviewList } from "@/lib/reviews";
 
 import Heading from "@/components/Heading";
 
+export const metadata = {
+	title: 'Reviews',
+}
+
+
 export default async function ReviewsPage() {
 	const reviews = await getReviewList();
 	return (

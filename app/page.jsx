@@ -20,7 +20,7 @@ export default async function HomePage() {
 						width={320}
 						className="rounded-t sm:rounded-l sm:rounded-r-none"
 					/>
-					<h2 className="py-1 text-center font-orbitron font-semibold sm:px-2">
+					<h2 className="py-1 font-orbitron font-semibold text-center sm:pl-8 sm:text-2xl sm:items-center sm:flex">
 						{lastReview.title}
 					</h2>
 				</Link>
