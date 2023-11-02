@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link";
 import { getReviewList } from "@/lib/reviews";
 
@@ -9,9 +10,8 @@ export const metadata = {
 
 
 export default async function ReviewsPage() {
-	const reviews = await getReviewList();
+	const reviews = await getReviewList(6);
 
-	console.log(reviews)
 	return (
 		<>
 			<Heading>Reviews</Heading>
@@ -19,16 +19,18 @@ export default async function ReviewsPage() {
 
 			<div className="mt-4">
 				<ul className="flex flex-wrap gap-3 justify-center">
-					{reviews.map((review) => (
+					{reviews.map((review, index) => (
 						<li
 							key={review.article}
 							className="border w-80 bg-slate-50 rounded shadow hover:shadow-xl min-w-[300px]"
 						>
 							<Link href={`/reviews/${review.article}`}>
-								<img
+								<Image
 									src={review.image}
 									alt=""
 									width={320}
+									height={180}
+									priority={index === 0}
 									className="rounded-t mb-2"
 								/>
 								<h2 className="py-1 text-center font-orbitron font-semibold">
