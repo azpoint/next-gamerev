@@ -1,12 +1,11 @@
 import Heading from "@/components/Heading";
 import ShareButtons from "@/components/ShareButtons";
-import ShareLinkButton from "@/components/ShareLinkButton";
 import { getReview, getArticles } from "@/lib/reviews";
 
 //Function to generate static routes
 export async function generateStaticParams() {
 	const article = await getArticles();
-	return article.map((slug) => ({ slug }));
+	return article.map((article) => ({ article }));
 }
 
 //Function to generate metadata
