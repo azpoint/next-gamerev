@@ -1,0 +1,97 @@
+{
+  "data": [
+    {
+      "id": 8,
+      "attributes": {
+        "slug": "hades-2018",
+        "title": "Hades",
+        "subtitle": "A Rogue-Like Gem that Ascends to Greatness",
+        "publishedAt": "2023-05-28T11:00:00.000Z",
+        "image": {
+          "data": {
+            "id": 8,
+            "attributes": {
+              "url": "/uploads/hades_2018_bff8e28a82.jpg"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 5,
+      "attributes": {
+        "slug": "fall-guys",
+        "title": "Fall Guys: Ultimate Knockout",
+        "subtitle": "A Whimsical Party Game for Endless Fun",
+        "publishedAt": "2023-05-27T11:00:00.000Z",
+        "image": {
+          "data": {
+            "id": 5,
+            "attributes": {
+              "url": "/uploads/fall_guys_9f9b386677.jpg"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 23,
+      "attributes": {
+        "slug": "black-mesa",
+        "title": "Black Mesa",
+        "subtitle": "A Masterful Reimagining of a Gaming Classic",
+        "publishedAt": "2023-05-26T11:00:00.000Z",
+        "image": {
+          "data": {
+            "id": 23,
+            "attributes": {
+              "url": "/uploads/black_mesa_f27df07b74.jpg"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 14,
+      "attributes": {
+        "slug": "disco-elysium",
+        "title": "Disco Elysium",
+        "subtitle": "A Mind-Bending Masterpiece of Narrative Brilliance",
+        "publishedAt": "2023-05-25T11:00:00.000Z",
+        "image": {
+          "data": {
+            "id": 14,
+            "attributes": {
+              "url": "/uploads/disco_elysium_897a229c9a.jpg"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 15,
+      "attributes": {
+        "slug": "dead-cells",
+        "title": "Dead Cells",
+        "subtitle": "An Electrifying Symphony of Rogue-like Action",
+        "publishedAt": "2023-05-24T11:00:00.000Z",
+        "image": {
+          "data": {
+            "id": 15,
+            "attributes": {
+              "url": "/uploads/dead_cells_de459ea5a7.jpg"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 5,
+      "pageCount": 5,
+      "total": 25
+    }
+  }
+}

@@ -3,10 +3,10 @@ import ShareButtons from "@/components/ShareButtons";
 import { getReview, getArticles } from "@/lib/reviews";
 
 //Function to generate static routes
-export async function generateStaticParams() {
-	const article = await getArticles();
-	return article.map((article) => ({ article }));
-}
+// export async function generateStaticParams() {
+// 	const article = await getArticles();
+// 	return article.map((article) => ({ article }));
+// }
 
 //Function to generate metadata
 export async function generateMetadata({ params: { article } }) {
@@ -28,12 +28,14 @@ export default async function ReviewPage({ params: { article } }) {
 				<ShareButtons />
 			</div>
 
-			<img src={review.image} alt="" width={640} className="rounded mb-2" />
+			<div className="flex flex-col items-center py-8">
+				<img src={review.image} alt="" width={640} className="rounded mb-2" />
 
-			<article
-				dangerouslySetInnerHTML={{ __html: review.body }}
-				className="prose prose-slate max-w-screen-sm"
-			/>
+				<article
+					dangerouslySetInnerHTML={{ __html: review.body }}
+					className="prose prose-slate max-w-screen-sm"
+				/>
+			</div>
 		</>
 	);
 }

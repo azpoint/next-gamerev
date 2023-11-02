@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getReviewList } from "@/lib/reviews";
+import { getReviewList } from "@/lib/reviews-local";
 
 import Heading from "@/components/Heading";
 
