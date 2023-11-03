@@ -8,9 +8,13 @@ export const metadata = {
 	title: 'Reviews',
 }
 
+//To force rendering in the page
+export const dynamic = 'force-dynamic'
 
 export default async function ReviewsPage() {
 	const reviews = await getReviewList(6);
+	console.log(
+	reviews.map(review => review.article).join(', '))
 
 	return (
 		<>
@@ -31,7 +35,7 @@ export default async function ReviewsPage() {
 									width={320}
 									height={180}
 									priority={index === 0}
-									className="rounded-t mb-2"
+									className="rounded-t mb-2 w-[320px] h-[180px] object-cover aspect-video"
 								/>
 								<h2 className="py-1 text-center font-orbitron font-semibold">
 									{review.title}

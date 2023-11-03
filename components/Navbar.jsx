@@ -2,16 +2,16 @@ import Link from "next/link";
 
 export default function Navbar() {
 	return (
-		<nav>
+		<nav className="container mx-auto">
 			<ul className="flex gap-2">
 				<li>
-					<Link href="/" className="text-orange-800 hover:underline font-orbitron font-bold">GameRev</Link>
+					<Link href="/" className="text-rose-700 hover:underline font-orbitron font-bold">GameRev</Link>
 				</li>
 				<li className="ml-auto">
-					<Link href="/reviews" className="text-orange-800 hover:underline">Reviews</Link>
+					<Link href="/reviews" className="text-rose-700 hover:underline">Reviews</Link>
 				</li>
 				<li>
-					<Link href="/about" prefetch={false} className="text-orange-800 hover:underline">
+					<Link href="/about" prefetch={false} className="text-rose-700 hover:underline">
 						About
 					</Link>
 				</li>

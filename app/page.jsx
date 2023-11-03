@@ -4,8 +4,14 @@ import { getReviewList } from "@/lib/reviews";
 
 import Heading from "@/components/Heading";
 
+//To force rendering in the page
+export const dynamic = 'force-dynamic'
+
 export default async function HomePage() {
 	const lastReviews = await getReviewList(3);
+	console.log(
+	lastReviews.map(review => review.article).join(', '))
+
 
 	return (
 		<>
@@ -28,7 +34,7 @@ export default async function HomePage() {
 								width={320}
 								height={180}
 								priority={index === 0}
-								className="rounded-t sm:rounded-l sm:rounded-r-none"
+								className="rounded-t sm:rounded-l sm:rounded-r-none w-[320px] h-[180px] object-cover aspect-video"
 							/>
 
 							<div className="font-orbitron text-center flex flex-col gap-4 p-4 w-full sm:flex-row sm:items-center sm:text-left">

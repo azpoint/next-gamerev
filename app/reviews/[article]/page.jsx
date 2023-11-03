@@ -3,11 +3,14 @@ import Heading from "@/components/Heading";
 import ShareButtons from "@/components/ShareButtons";
 import { getReview, getArticles } from "@/lib/reviews";
 
+//To force rendering in the page
+export const dynamic = 'force-dynamic'
+
 //Function to generate static routes
-export async function generateStaticParams() {
-	const article = await getArticles();
-	return article.map((article) => ({ article }));
-}
+// export async function generateStaticParams() {
+// 	const article = await getArticles();
+// 	return article.map((article) => ({ article }));
+// }
 
 //Function to generate metadata
 export async function generateMetadata({ params: { article } }) {
@@ -23,7 +26,7 @@ export default async function ReviewPage({ params: { article } }) {
 	return (
 		<>
 			<Heading>{review.title}</Heading>
-			
+
 			<p className="font-semibold pb-3">{review.subtitle}</p>
 			<div className="flex items-baseline gap-3">
 				<p className="italic pb-2">{review.date}</p>
@@ -37,7 +40,7 @@ export default async function ReviewPage({ params: { article } }) {
 					width={640}
 					height={320}
 					priority
-					className="rounded mb-2"
+					className="rounded mb-2 aspect-video object-cover"
 				/>
 
 				<article
