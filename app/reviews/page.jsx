@@ -9,12 +9,15 @@ export const metadata = {
 }
 
 //To force rendering in the page
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'
+
+//Background Validation
+// export const revalidate = 30 //In seconds
+
 
 export default async function ReviewsPage() {
 	const reviews = await getReviewList(6);
-	console.log(
-	reviews.map(review => review.article).join(', '))
+	
 
 	return (
 		<>

@@ -5,13 +5,13 @@ import { getReviewList } from "@/lib/reviews";
 import Heading from "@/components/Heading";
 
 //To force rendering in the page
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'
+
+//Background Validation
+// export const revalidate = 30 //In seconds
 
 export default async function HomePage() {
 	const lastReviews = await getReviewList(3);
-	console.log(
-	lastReviews.map(review => review.article).join(', '))
-
 
 	return (
 		<>

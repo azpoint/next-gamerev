@@ -1,20 +1,29 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
+import { getArticles } from "@/lib/reviews";
 import Heading from "@/components/Heading";
 import ShareButtons from "@/components/ShareButtons";
-import { getReview, getArticles } from "@/lib/reviews";
+import { getReview } from "@/lib/reviews";
 
 //To force rendering in the page
-export const dynamic = 'force-dynamic'
+// export const dynamic = "force-dynamic";
+
+//Background Validation
+// export const revalidate = 10 //In seconds
+
 
 //Function to generate static routes
-// export async function generateStaticParams() {
-// 	const article = await getArticles();
-// 	return article.map((article) => ({ article }));
-// }
+export async function generateStaticParams() {
+	const article = await getArticles();
+	return article.map((article) => ({ article }));
+}
 
 //Function to generate metadata
 export async function generateMetadata({ params: { article } }) {
 	const review = await getReview(article);
+	if (!review) {
+		notFound();
+	}
 	return {
 		title: review.title,
 	};
@@ -22,6 +31,9 @@ export async function generateMetadata({ params: { article } }) {
 
 export default async function ReviewPage({ params: { article } }) {
 	const review = await getReview(article);
+	if (!review) {
+		notFound();
+	}
 
 	return (
 		<>
