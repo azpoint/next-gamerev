@@ -11,15 +11,15 @@ import Heading from "@/components/Heading";
 // export const revalidate = 30 //In seconds
 
 export default async function HomePage() {
-	const lastReviews = await getReviewList(3);
+	const { reviews } = await getReviewList(3);
 
 	return (
 		<>
 			<Heading>GameRev</Heading>
-			<p className="pb-3">My personal video game choices</p>
+			<p className="pb-3 font-sans">My personal video game choices</p>
 
 			<ul className="flex flex-col gap-4 items-center">
-				{lastReviews.map((review, index) => (
+				{reviews.map((review, index) => (
 					<li
 						key={review.article}
 						className="border bg-slate-50 w-80 sm:w-full rounded shadow hover:shadow-xl"

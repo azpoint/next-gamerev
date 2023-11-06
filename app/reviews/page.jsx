@@ -1,12 +1,16 @@
-import Image from "next/image"
+import Image from "next/image";
 import Link from "next/link";
-import { getReviewList } from "@/lib/reviews";
+import { getReviewList, getSearchReviews } from "@/lib/reviews";
 
 import Heading from "@/components/Heading";
+import PaginationBar from "@/components/PaginationBar";
+import SearchBox from "@/components/SearchBox";
 
 export const metadata = {
-	title: 'Reviews',
-}
+	title: "Reviews",
+};
+
+const PAGE_SIZE = 6;
 
 //To force rendering in the page
 // export const dynamic = 'force-dynamic'
@@ -14,15 +18,22 @@ export const metadata = {
 //Background Validation
 // export const revalidate = 30 //In seconds
 
+export default async function ReviewsPage({ searchParams }) {
+	const page = parsePageParam(searchParams.page);
 
-export default async function ReviewsPage() {
-	const reviews = await getReviewList(6);
-	
+	const { reviews, pageCount } = await getReviewList(PAGE_SIZE, page);
+	const searchableReviews = await getSearchReviews();
+
+	// console.log("Reviews: ", reviews.map(({article, title}) => ({article, title})))
 
 	return (
 		<>
 			<Heading>Reviews</Heading>
-			<p>Here will be all the reviews</p>
+
+			<div className="flex justify-between">
+				<PaginationBar page={page} pageCount={pageCount} href={"/reviews"} />
+				<SearchBox reviews={searchableReviews} />
+			</div>
 
 			<div className="mt-4">
 				<ul className="flex flex-wrap gap-3 justify-center">
@@ -40,7 +51,7 @@ export default async function ReviewsPage() {
 									priority={index === 0}
 									className="rounded-t mb-2 w-[320px] h-[180px] object-cover aspect-video"
 								/>
-								<h2 className="py-1 text-center font-orbitron font-semibold">
+								<h2 className="my-3 py-0 font-orbitron font-semibold text-center">
 									{review.title}
 								</h2>
 							</Link>
@@ -50,4 +61,14 @@ export default async function ReviewsPage() {
 			</div>
 		</>
 	);
+}
+
+function parsePageParam(paramValue) {
+	if (paramValue) {
+		const page = parseInt(paramValue);
+		if (isFinite(page) && page > 0) {
+			return page;
+		}
+	}
+	return 1;
 }
