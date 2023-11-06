@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getReviewList, getSearchReviews } from "@/lib/reviews";
+import { getReviewList } from "@/lib/reviews";
 
 import Heading from "@/components/Heading";
 import PaginationBar from "@/components/PaginationBar";
@@ -22,7 +22,6 @@ export default async function ReviewsPage({ searchParams }) {
 	const page = parsePageParam(searchParams.page);
 
 	const { reviews, pageCount } = await getReviewList(PAGE_SIZE, page);
-	const searchableReviews = await getSearchReviews();
 
 	// console.log("Reviews: ", reviews.map(({article, title}) => ({article, title})))
 
@@ -32,7 +31,7 @@ export default async function ReviewsPage({ searchParams }) {
 
 			<div className="flex justify-between">
 				<PaginationBar page={page} pageCount={pageCount} href={"/reviews"} />
-				<SearchBox reviews={searchableReviews} />
+				<SearchBox />
 			</div>
 
 			<div className="mt-4">
