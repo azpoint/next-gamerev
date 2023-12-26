@@ -2,12 +2,7 @@ import './globals.css'
 import Navbar from "../components/Navbar";
 import { exo2, orbitron } from "./fonts";
 
-export const metadata = {
-	title: {
-		default: 'Game Rev',
-		template: '%s | GameRev'
-	}
-}
+
 
 export default function RootLayout({ children }) {
 	return (

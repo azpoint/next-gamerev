@@ -4,13 +4,14 @@ import { getArticles } from "@/lib/reviews";
 import Heading from "@/components/Heading";
 import ShareButtons from "@/components/ShareButtons";
 import { getReview } from "@/lib/reviews";
-
+import { ChatBubbleBottomCenterTextIcon} from '@heroicons/react/24/outline'
+import CommentList from "@/components/CommentList";
+import CommentForm from "@/components/CommentForm";
 //To force rendering in the page
 // export const dynamic = "force-dynamic";
 
 //Background Validation
 // export const revalidate = 10 //In seconds
-
 
 //Function to generate static routes
 export async function generateStaticParams() {
@@ -59,6 +60,15 @@ export default async function ReviewPage({ params: { article } }) {
 					dangerouslySetInnerHTML={{ __html: review.body }}
 					className="prose prose-slate max-w-screen-sm"
 				/>
+
+				<section className="border-dashed border-t max-w-screen-sm mt-3 py-3">
+					<h2 className="font-bold flex gap-2 items-center text-xl">
+						<ChatBubbleBottomCenterTextIcon className="h-6 w-6" />
+						Comments
+					</h2>
+					<CommentForm />
+					<CommentList article={article}/>
+				</section>
 			</div>
 		</>
 	);

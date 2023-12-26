@@ -10,6 +10,13 @@ import Heading from "@/components/Heading";
 //Background Validation
 // export const revalidate = 30 //In seconds
 
+export const metadata = {
+	title: {
+		default: 'Game Rev',
+		template: '%s | GameRev'
+	}
+}
+
 export default async function HomePage() {
 	const { reviews } = await getReviewList(3);
 
