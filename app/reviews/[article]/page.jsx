@@ -66,7 +66,7 @@ export default async function ReviewPage({ params: { article } }) {
 						<ChatBubbleBottomCenterTextIcon className="h-6 w-6" />
 						Comments
 					</h2>
-					<CommentForm />
+					<CommentForm article={article} title={review.title}/>
 					<CommentList article={article}/>
 				</section>
 			</div>
