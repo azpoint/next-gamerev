@@ -4,9 +4,11 @@ import { getArticles } from "@/lib/reviews";
 import Heading from "@/components/Heading";
 import ShareButtons from "@/components/ShareButtons";
 import { getReview } from "@/lib/reviews";
-import { ChatBubbleBottomCenterTextIcon} from '@heroicons/react/24/outline'
+import { ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
 import CommentList from "@/components/CommentList";
 import CommentForm from "@/components/CommentForm";
+import { Suspense } from "react";
+import CommentsListSkeleton from "@/components/CommentListSkeleton";
 //To force rendering in the page
 // export const dynamic = "force-dynamic";
 
@@ -31,7 +33,10 @@ export async function generateMetadata({ params: { article } }) {
 }
 
 export default async function ReviewPage({ params: { article } }) {
+
+
 	const review = await getReview(article);
+
 	if (!review) {
 		notFound();
 	}
@@ -66,8 +71,10 @@ export default async function ReviewPage({ params: { article } }) {
 						<ChatBubbleBottomCenterTextIcon className="h-6 w-6" />
 						Comments
 					</h2>
-					<CommentForm article={article} title={review.title}/>
-					<CommentList article={article}/>
+					<CommentForm article={article} title={review.title} />
+					<Suspense fallback={<CommentsListSkeleton />}>
+						<CommentList article={article} />
+					</Suspense>
 				</section>
 			</div>
 		</>

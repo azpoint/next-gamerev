@@ -24,7 +24,7 @@ export default function CommentForm({ title, article }) {
 	return (
 		<form
 			// action={createCommentAction} //this is for inline server action!!!
-			onSubmit={handleSubmit}
+			onSubmit={handleSubmit} //This is for client server action!!!
 			className="border bg-white flex flex-col gap-2 mt-3 px-3 py-3 rounded"
 		>
 			<p className="pb-1">

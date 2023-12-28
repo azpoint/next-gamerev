@@ -12,7 +12,7 @@ export default async function CommentsList({ article }) {
 			{comments.map((comment) => (
 				<li
 					key={comment.id}
-					className="border-b px-3 py-2 last:border-none odd:bg-orange-100"
+					className="border-b px-3 py-2 last:border-none odd:bg-slate-200 rounded-lg"
 				>
 					<div className="flex gap-3 pb-1 text-slate-500">
 						<UserCircleIcon className="h-6 w-6" />
